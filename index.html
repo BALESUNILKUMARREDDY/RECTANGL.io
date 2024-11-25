@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List App</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="profile">
+        <div class="circle">DO-IT</div>
+        <div class="profile-name">BALE SUNIL KUMAR REDDY</div>
+      </div>
+      <hr>
+      <div class="menu">
+        <p onclick="showPage('today')"><i class="fas fa-check-circle"></i> Today's Tasks</p>
+        <p onclick="filterTasks('Personal')">
+          <span class="dot personal"></span> Personal
+        </p>
+        <p onclick="filterTasks('Freelance')">
+          <span class="dot freelance"></span> Freelance
+        </p>
+        <p onclick="filterTasks('Work')">
+          <span class="dot work"></span> Work
+        </p>
+        <p onclick="openSettings()"><i class="fas fa-cogs"></i> Settings</p>
+        <p onclick="showPage('scheduled')"><i class="fas fa-calendar"></i> Scheduled Tasks</p>
+      </div>
+    </div>
+
+    <div class="main">
+      <div id="today" class="page">
+        <h2>Today's Tasks</h2>
+        <div class="task-input">
+          <input type="text" id="taskInput" placeholder="Add a new task...">
+          <button onclick="addTask()">Add Task</button>
+        </div>
+
+        <div class="task-type-selection">
+          <button onclick="selectTaskType('Personal')" class="task-type-btn personal">Personal</button>
+          <button onclick="selectTaskType('Freelance')" class="task-type-btn freelance">Freelance</button>
+          <button onclick="selectTaskType('Work')" class="task-type-btn work">Work</button>
+        </div>
+
+        <div class="task-container" id="taskList"></div>
+      </div>
+
+      <div id="scheduled" class="page" style="display:none;">
+        <h2>Scheduled Tasks</h2>
+        <div id="scheduledTasks" class="task-container"></div>
+      </div>
+
+      <!-- Settings Modal -->
+      <div id="settingsModal" class="settings-modal">
+        <div class="settings-modal-content">
+          <h3>Edit Settings</h3>
+          <div class="setting-item">
+            <i class="fas fa-user-circle"></i>
+            <span>Edit Profile</span>
+          </div>
+          <hr>
+          <div class="setting-item">
+            <i class="fas fa-key"></i>
+            <span>Change Password</span>
+          </div>
+          <hr>
+          <div class="setting-item">
+            <i class="fas fa-shield-alt"></i>
+            <span>Privacy</span>
+          </div>
+          <hr>
+          <div class="setting-item">
+            <i class="fas fa-bell"></i>
+            <span>Notification</span>
+          </div>
+          <p>Receive notifications for new tasks.</p>
+          <div class="toggle-container">
+            <span>Task Notifications</span>
+            <label class="switch">
+              <input type="checkbox" id="taskNotificationToggle">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <hr>
+          <div class="setting-item">
+            <i class="fas fa-ellipsis-h"></i>
+            <span>More</span>
+          </div>
+          <hr>
+          <div class="setting-item">
+            <i class="fas fa-language"></i>
+            <span>Language</span>
+          </div>
+          <hr>
+          <div class="setting-item">
+            <i class="fas fa-globe"></i>
+            <span>Country</span>
+          </div>
+          <button onclick="closeSettings()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

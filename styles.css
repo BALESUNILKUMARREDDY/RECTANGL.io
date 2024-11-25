@@ -1,0 +1,275 @@
+/* Basic styles and layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background-color: #e6e0ff;
+}
+
+.sidebar {
+  width: 20%;
+  background-color: white;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.profile .circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #A18AFF;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.profile-name {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}
+
+.menu p {
+  font-size: 16px;
+  color: #666;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.menu p:hover {
+  color: #333;
+}
+
+.main {
+  flex: 1;
+  background-color: #d8cafe;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.main h2 {
+  font-size: 24px;
+  color: #6a4caf;
+  margin-bottom: 20px;
+}
+
+.task-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.task-input input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #d1c4e9;
+  border-radius: 10px;
+  outline: none;
+  font-size: 16px;
+}
+
+.task-input button {
+  background-color: #6a4caf;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.task-input button:hover {
+  background-color: #5a3b9c;
+}
+
+.task-type-selection {
+  margin-bottom: 20px;
+}
+
+.task-type-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.task-type-btn.personal {
+  background-color: #ff4f4f;
+  color: white;
+}
+
+.task-type-btn.freelance {
+  background-color: #ffb94d;
+  color: white;
+}
+
+.task-type-btn.work {
+  background-color: #4d94ff;
+  color: white;
+}
+
+.task-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.task {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  position: relative;
+  border-left: 5px solid;
+}
+
+.task-line {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.task-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Styling for Task Type Circles in Sidebar */
+.menu p .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dot.personal {
+  background-color: #ff4f4f; /* Red */
+}
+
+.dot.freelance {
+  background-color: #ffb94d; /* Orange */
+}
+
+.dot.work {
+  background-color: #4d94ff; /* Blue */
+}
+
+/* Modal for settings */
+.settings-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings-modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.setting-item i {
+  font-size: 20px;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  border-radius: 50px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #6a4caf;
+}
+
+input:checked + .slider:before {
+  transform: translateX(14px);
+}
